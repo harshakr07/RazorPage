@@ -7,18 +7,19 @@ namespace AbbyWeb.Pages.Categories
 {
     public class CreateModel : PageModel
     {
-        private ApplicationDbContext _db;
+        private readonly ApplicationDbContext _db;
+        [BindProperty]
+        public Category Category { get; set; }
         public CreateModel(ApplicationDbContext db)
         {
             _db = db;
         }
-        public Category Category { get; set; }
         public void OnGet()
         {
         }
 
-        public async Task<IActionResult> OnPost(Category category) {
-            _db.Categories.AddAsync(category);
+        public async Task<IActionResult> OnPost() {
+            _db.Categories.AddAsync(Category);
             await _db.SaveChangesAsync();
             return RedirectToPage("Index");
         }
