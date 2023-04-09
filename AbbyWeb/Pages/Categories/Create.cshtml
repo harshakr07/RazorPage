@@ -1,0 +1,23 @@
+﻿@page
+@model AbbyWeb.Pages.Categories.CreateModel
+
+<form method="post">
+    <div>
+        <div>
+            <h2> Create Category</h2>
+        </div>
+        <hr/>
+        <div>
+            <label asp-for="@Model.Category.Name"></label>
+            <input asp-for="@Model.Category.Name">
+        </div>
+        <br/>
+        <div>
+           
+            <label asp-for="@Model.Category.DisplayOrger"></label>
+            <input asp-for="@Model.Category.DisplayOrger">
+        </div>
+        <br />
+        <button type="submit" >Create</button>
+    </div>
+</form>
